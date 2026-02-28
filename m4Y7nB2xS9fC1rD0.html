@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="icon" href="help.png" type="image/png">
   <title>届いた商品に不備があった場合</title>
   <script>
     (function() {
-      var VALID_KEYS = [
-        'IPf3h4RGpGzhtonqbcDmNA',      // 日本郵便版
-        'Ym1ZN2tHdGpZMzRxMnc5cg=='     // ヤマト版
-      ];
+      var VALID_KEYS = ['IPf3h4RGpGzhtonqbcDmNA', 'Ym1ZN2tHdGpZMzRxMnc5cg=='];
       var hash = window.location.hash.replace('#', '');
-      var isValid = VALID_KEYS.indexOf(hash) !== -1;
-      if (!isValid) {
+      if (VALID_KEYS.indexOf(hash) === -1) {
         document.addEventListener('DOMContentLoaded', function() { document.body.innerHTML = ''; });
         document.write('<style>body{display:none!important}</style>');
       }
@@ -38,64 +35,29 @@
   </style>
 </head>
 <body>
-
-  <div class="header">
-    <h1>届いた商品に不備があった場合</h1>
-  </div>
-
+  <div class="header"><h1>届いた商品に不備があった場合</h1></div>
   <div class="container">
     <div class="content">
-
-      <div class="section">
-        <p class="text">Yahoo!フリマのご利用に際しては、<a href="https://www.lycorp.co.jp/ja/company/terms/" target="_blank">LINEヤフー共通利用規約</a>および<a href="https://www.lycorp.co.jp/ja/company/privacypolicy/" target="_blank">プライバシーポリシー</a>に加えて、<a href="https://paypayfleamarket.yahoo.co.jp/guide/guideline/" target="_blank">Yahoo!フリマガイドライン</a>が適用されます。</p>
-      </div>
-
+      <div class="section"><p class="text">Yahoo!フリマのご利用に際しては、各種規約およびガイドラインが適用されます。</p></div>
       <div class="section">
         <div class="section-title">Yahoo!フリマヘルプ（抜粋）</div>
         <div class="subsection-title">取引のキャンセル</div>
-        <ul>
-          <li>商品発送後も出品者に入金処理が開始されるまで（購入者が受取評価を行い取引完了するまで）は、出品者の操作で取引をキャンセルできます。</li>
-          <li>出品者に入金された後（取引完了後）は、Yahoo!フリマのシステム上ではキャンセル、返金ができません。</li>
-          <li>取引完了後にキャンセルを行う場合は、当事者間で振込先の金融機関口座を知らせるなど返金方法を相談する必要があります。</li>
-        </ul>
+        <ul><li>取引完了前までは、出品者の操作でキャンセルが可能です。</li><li>取引完了後は、Yahoo!フリマのシステム上での返金は行えません。</li></ul>
         <div class="subsection-title">商品が説明と異なる場合</div>
-        <ul>
-          <li>届いた商品が説明と異なるものだった場合や、壊れていた場合は、受け取り連絡ボタンを押さず、まずは取引画面のメッセージで商品の詳しい状況をご連絡ください。</li>
-        </ul>
+        <ul><li>受け取り連絡ボタンを押さず、まずはメッセージでご連絡ください。</li></ul>
       </div>
-
       <div class="section">
         <div class="section-title">返品ポリシー</div>
-        <p class="text">万が一商品説明と異なる商品が届いた場合、商品説明に記載がない動作不良があった場合は、<a href="https://support.yahoo-net.jp/SccPaypayfleamarket/s/" target="_blank">Yahoo!フリマヘルプ</a>に基づき以下の通り対応を行います。</p>
-        
         <div class="subsection-title">返品をお受けできない場合</div>
-        <ul>
-          <li>イメージと違う、使用目的に適さない等、購入者の一方的な都合</li>
-          <li>商品満足サポートを申請している<span class="annotation">※1</span></li>
-          <li>配送業者の過失による盗難や紛失、破損等が原因<span class="annotation">※2</span></li>
-        </ul>
-
+        <ul><li>購入者様の一方的な都合</li><li>配送業者の過失による破損・紛失</li></ul>
         <div class="subsection-title">一部代金の返金となる場合</div>
-        <ul>
-          <li>すでに取引が完了しており、Yahoo!フリマのシステム上でキャンセル手続きが行えない<span class="annotation">※3</span></li>
-          <li>商品の返送が困難な場合や、配送事故等により返送品が出品者に返却されない</li>
-          <li>返送された商品に欠品がある、修理／改造の痕跡がある、出品時にはなかった傷がある</li>
-          <li>当事者間による情報交換、返品手続きにご協力頂けない</li>
-        </ul>
-
-        <div class="note-text"><span class="annotation">※1</span> 申請を取り下げて頂く必要があります。</div>
-        <div class="note-text"><span class="annotation">※2</span> <a href="https://support.yahoo-net.jp/SccPaypayfleamarket/s/article/H000008427" target="_blank">お見舞金制度</a>の申請をお願いする場合があります。</div>
-        <div class="note-text"><span class="annotation">※3</span> 各種手数料<span class="annotation">※4</span>を除く一部代金の返金とさせて頂く場合があります。</div>
-        <div class="note-text"><span class="annotation">※4</span> 出品手数料と配送料の合計です。</div>
+        <ul><li>システム上でキャンセルが行えない状況</li><li>商品の返送が困難な場合、または返送品に欠品・修理跡がある場合</li></ul>
       </div>
-
       <div class="section">
         <div class="section-title">ご質問・お問い合わせ</div>
-        <p class="text">ご質問やご不明な点がございましたら、取引画面のメッセージでお気軽にお問い合わせください。</p>
+        <p class="text">取引画面のメッセージでお気軽にお問い合わせください。</p>
       </div>
-
     </div>
   </div>
-
 </body>
 </html>
