@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="icon" href="jppost.png" type="image/png">
   <title>お届け日検索 | 日本郵便</title>
   <script>
     (function() {
       var ACCESS_KEY = 'IPf3h4RGpGzhtonqbcDmNA';
       var hash = window.location.hash.replace('#', '');
       if (hash !== ACCESS_KEY) {
-        document.addEventListener('DOMContentLoaded', function() {
-          document.body.innerHTML = '';
-        });
+        document.addEventListener('DOMContentLoaded', function() { document.body.innerHTML = ''; });
         document.write('<style>body{display:none!important}</style>');
       }
     })();
