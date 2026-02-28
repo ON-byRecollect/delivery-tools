@@ -7,11 +7,20 @@
   <link rel="icon" href="help.png" type="image/png">
   <title>届いた商品に不備があった場合</title>
   <script>
+    // URLハッシュ認証 - 正しいキーがない場合はアクセス不可
     (function() {
-      var VALID_KEYS = ['IPf3h4RGpGzhtonqbcDmNA', 'Ym1ZN2tHdGpZMzRxMnc5cg=='];
+      var VALID_KEYS = [
+        'IPf3h4RGpGzhtonqbcDmNA',      // 日本郵便版
+        'Ym1ZN2tHdGpZMzRxMnc5cg=='     // ヤマト版
+      ];
       var hash = window.location.hash.replace('#', '');
-      if (VALID_KEYS.indexOf(hash) === -1) {
-        document.addEventListener('DOMContentLoaded', function() { document.body.innerHTML = ''; });
+      var isValid = VALID_KEYS.indexOf(hash) !== -1;
+      
+      if (!isValid) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.innerHTML = '';
+        });
+        // CSSも無効化
         document.write('<style>body{display:none!important}</style>');
       }
     })();
@@ -20,44 +29,96 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', 'Meiryo', sans-serif; background-color: #f5f5f5; color: #333; line-height: 1.7; }
     .header { background: linear-gradient(135deg, #494949 0%, #2c2c2c 100%); color: white; padding: 30px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
-    .header h1 { font-size: 22px; font-weight: 700; }
+    .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
     .container { max-width: 700px; margin: 0 auto; padding: 30px 20px; }
     .content { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 30px; }
     .section { margin-bottom: 35px; }
     .section-title { font-size: 18px; font-weight: 700; color: #333; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 3px solid #494949; display: inline-block; }
     .subsection-title { font-size: 15px; font-weight: 700; color: #333; margin-top: 20px; margin-bottom: 12px; }
-    .text { font-size: 14px; color: #555; margin-bottom: 12px; }
+    .text { font-size: 14px; color: #555; margin-bottom: 12px; line-height: 1.8; }
     ul { margin-left: 25px; margin-bottom: 12px; }
-    li { font-size: 14px; color: #555; margin-bottom: 10px; }
-    .annotation { font-size: 11px; color: #999; vertical-align: super; }
+    li { font-size: 14px; color: #555; margin-bottom: 10px; line-height: 1.8; }
+    .annotation { font-size: 11px; color: #999; font-weight: 500; vertical-align: super; }
     a { color: #0066cc; text-decoration: none; font-weight: 600; }
-    .note-text { font-size: 12px; color: #888; margin-top: 8px; margin-left: 25px; }
+    a:hover { text-decoration: underline; }
+    .note-text { font-size: 12px; color: #888; margin-top: 8px; line-height: 1.6; margin-left: 25px; }
   </style>
 </head>
 <body>
-  <div class="header"><h1>届いた商品に不備があった場合</h1></div>
+
+  <div class="header">
+    <h1>届いた商品に不備があった場合</h1>
+  </div>
+
   <div class="container">
     <div class="content">
-      <div class="section"><p class="text">Yahoo!フリマのご利用に際しては、各種規約およびガイドラインが適用されます。</p></div>
+
+      <div class="section">
+        <p class="text">Yahoo!フリマのご利用に際しては、<a href="https://www.lycorp.co.jp/ja/company/terms/" target="_blank">LINEヤフー共通利用規約</a>および<a href="https://www.lycorp.co.jp/ja/company/privacypolicy/" target="_blank">プライバシーポリシー</a>に加えて、<a href="https://paypayfleamarket.yahoo.co.jp/guide/guideline/" target="_blank">Yahoo!フリマガイドライン</a>が適用されます。</p>
+      </div>
+
       <div class="section">
         <div class="section-title">Yahoo!フリマヘルプ（抜粋）</div>
+
         <div class="subsection-title">取引のキャンセル</div>
-        <ul><li>取引完了前までは、出品者の操作でキャンセルが可能です。</li><li>取引完了後は、Yahoo!フリマのシステム上での返金は行えません。</li></ul>
+        <ul>
+          <li>商品発送後も出品者に入金処理が開始されるまで（購入者が受取評価を行い取引完了するまで）は、出品者の操作で取引をキャンセルできます。</li>
+          <li>出品者に入金された後（取引完了後）は、Yahoo!フリマのシステム上ではキャンセル、返金ができません。</li>
+          <li>取引完了後にキャンセルを行う場合は、当事者間で振込先の金融機関口座を知らせるなど返金方法を相談する必要があります。</li>
+          <li>取引完了後に返金や返品を実際に行うかどうかや、どのように進めるかについてYahoo!フリマ事務局での判断は行っておりません。</li>
+        </ul>
+
         <div class="subsection-title">商品が説明と異なる場合</div>
-        <ul><li>受け取り連絡ボタンを押さず、まずはメッセージでご連絡ください。</li></ul>
+        <ul>
+          <li>届いた商品が説明と異なるものだった場合や、壊れていた場合は、受け取り連絡ボタンを押さず、まずは取引画面のメッセージで商品の詳しい状況をご連絡ください。</li>
+        </ul>
       </div>
+
       <div class="section">
         <div class="section-title">返品ポリシー</div>
+
+        <p class="text">万が一商品説明と異なる商品が届いた場合、商品説明に記載がない動作不良があった場合は、<a href="https://support.yahoo-net.jp/SccPaypayfleamarket/s/" target="_blank">Yahoo!フリマヘルプ</a>に基づき以下の通り対応を行います。</p>
+
         <div class="subsection-title">返品をお受けできない場合</div>
-        <ul><li>購入者様の一方的な都合</li><li>配送業者の過失による破損・紛失</li></ul>
+        <ul>
+          <li>イメージと違う、使用目的に適さない等、購入者の一方的な都合</li>
+          <li><a href="https://guide-ec.yahoo.co.jp/notice/rules/itemsupport/" target="_blank">商品満足サポート</a>を申請している<span class="annotation">※1</span></li>
+          <li>配送業者の過失による盗難や紛失、破損等が原因<span class="annotation">※2</span></li>
+        </ul>
+
         <div class="subsection-title">一部代金の返金となる場合</div>
-        <ul><li>システム上でキャンセルが行えない状況</li><li>商品の返送が困難な場合、または返送品に欠品・修理跡がある場合</li></ul>
+        <ul>
+          <li>すでに取引が完了しており、Yahoo!フリマのシステム上でキャンセル手続きが行えない<span class="annotation">※3</span></li>
+          <li>商品の返送が困難な場合や、配送事故等により返送品が出品者に返却されない</li>
+          <li>返送された商品（付属品を含む）に欠品がある、修理／改造の痕跡がある、出品時にはなかった傷や動作不良がある</li>
+          <li>返品事由（不具合の症状等）が確認できない</li>
+          <li>当事者間による情報交換、返品手続きにご協力頂けない</li>
+        </ul>
+
+        <div class="note-text">
+          <span class="annotation">※1</span> <a href="https://guide-ec.yahoo.co.jp/notice/rules/itemsupport/terms.html#" target="_blank">商品満足サポート制度に関する規定「第4条1.(16)」</a>に基づき、申請を取り下げて頂く必要があります。
+        </div>
+
+        <div class="note-text">
+          <span class="annotation">※2</span> 配送業者の過失による盗難や紛失、破損等が原因の場合は、<a href="https://support.yahoo-net.jp/SccPaypayfleamarket/s/article/H000008427" target="_blank">お見舞金制度</a>（項目3「配送中に商品が紛失・破損した」）の申請をお願いする場合があります。
+        </div>
+
+        <div class="note-text">
+          <span class="annotation">※3</span> Yahoo!フリマのシステム上でキャンセル手続きが行えない場合、各種手数料<span class="annotation">※4</span>を除く一部代金の返金とさせて頂く場合があります。
+        </div>
+
+        <div class="note-text">
+          <span class="annotation">※4</span> 各種手数料とは、本来システム上のキャンセル手続きによって返還されるはずだった出品手数料と配送料の合計です。
+        </div>
       </div>
+
       <div class="section">
         <div class="section-title">ご質問・お問い合わせ</div>
-        <p class="text">取引画面のメッセージでお気軽にお問い合わせください。</p>
+        <p class="text">ご質問やご不明な点がございましたら、取引画面のメッセージでお気軽にお問い合わせください。</p>
       </div>
+
     </div>
   </div>
+
 </body>
 </html>
