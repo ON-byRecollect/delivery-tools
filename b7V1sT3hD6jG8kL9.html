@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>お届け日検索 | ヤマト運輸</title>
+  <script>
+    (function() {
+      var ACCESS_KEY = 'Ym1ZN2tHdGpZMzRxMnc5cg==';
+      var hash = window.location.hash.replace('#', '');
+      if (hash !== ACCESS_KEY) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.innerHTML = '';
+        });
+        document.write('<style>body{display:none!important}</style>');
+      }
+    })();
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', 'Meiryo', sans-serif; background: #f0f2f5; color: #333; min-height: 100vh; }
+    .header { background: linear-gradient(135deg, #f7c234 0%, #f9d66a 100%); color: #333; padding: 22px 16px 24px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .header h1 { font-size: 21px; font-weight: 800; }
+    .container { max-width: 480px; margin: 0 auto; padding: 20px 16px 48px; display: flex; flex-direction: column; gap: 14px; }
+    .card { background: white; border-radius: 18px; padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .form-row-label { font-size: 11px; font-weight: 700; color: #aaa; margin-bottom: 6px; }
+    select, input[type="date"] { width: 100%; background: #f7f8fa; border: 2px solid #e8e8e8; border-radius: 14px; padding: 14px; font-size: 16px; font-weight: 600; outline: none; }
+    .result-card { display: none; animation: fadeInUp 0.3s ease both; }
+    .result-card.visible { display: block; }
+    .date-banner { border-radius: 16px; padding: 16px 18px; background: #494949; color: white; margin-bottom: 12px; }
+    .date-val { font-size: 20px; font-weight: 900; }
+    .detail-row { background: #f7f8fa; border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; }
+    a { color: #0066cc; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header class="header"><h1>お届け日検索</h1><p>ヤマト運輸 / 発送元：北海道</p></header>
+  <div class="container">
+    <div class="card">
+      <p class="form-row-label">お届け先を選択</p>
+      <select id="pref-select">
+        <option value="">—— お届け先を選んでください ——</option>
+        <optgroup label="北海道"><option value="hokkaido">北海道</option></optgroup>
+        <optgroup label="東北"><option value="aomori">青森県</option><option value="iwate">岩手県</option><option value="miyagi">宮城県</option><option value="akita">秋田県</option><option value="yamagata">山形県</option><option value="fukushima">福島県</option></optgroup>
+        <optgroup label="関東"><option value="ibaraki">茨城県</option><option value="tochigi">栃木県</option><option value="gunma">群馬県</option><option value="saitama">埼玉県</option><option value="chiba">千葉県</option><option value="tokyo">東京都</option><option value="kanagawa">神奈川県</option></optgroup>
+        <optgroup label="中部"><option value="niigata">新潟県</option><option value="toyama">富山県</option><option value="ishikawa">石川県</option><option value="fukui">福井県</option><option value="yamanashi">山梨県</option><option value="nagano">長野県</option><option value="gifu">岐阜県</option><option value="shizuoka">静岡県</option><option value="aichi">愛知県</option></optgroup>
+        <optgroup label="近畿"><option value="mie">三重県</option><option value="shiga">滋賀県</option><option value="kyoto">京都府</option><option value="osaka">大阪府</option><option value="hyogo">兵庫県</option><option value="nara">奈良県</option><option value="wakayama">和歌山県</option></optgroup>
+        <optgroup label="中国"><option value="tottori">鳥取県</option><option value="shimane">島根県</option><option value="okayama">岡山県</option><option value="hiroshima">広島県</option><option value="yamaguchi">山口県</option></optgroup>
+        <optgroup label="四国"><option value="tokushima">徳島県</option><option value="kagawa">香川県</option><option value="ehime">愛媛県</option><option value="kochi">高知県</option></optgroup>
+        <optgroup label="九州"><option value="fukuoka">福岡県</option><option value="saga">佐賀県</option><option value="nagasaki">長崎県</option><option value="kumamoto">熊本県</option><option value="oita">大分県</option><option value="miyazaki">宮崎県</option><option value="kagoshima">鹿児島県</option></optgroup>
+        <optgroup label="沖縄"><option value="okinawa">沖縄県</option></optgroup>
+      </select>
+      <p class="form-row-label" style="margin-top:14px;">発送日</p>
+      <input type="date" id="ship-date">
+    </div>
+    <div id="result-card" class="card result-card">
+      <p id="pref-name-display" style="font-size:22px;font-weight:800;margin-bottom:14px;"></p>
+      <div class="date-banner"><div style="font-size:10px;opacity:0.8;">お届け日の目安</div><span class="date-val" id="date-from"></span> ～ <span class="date-val" id="date-to"></span></div>
+      <div class="detail-row"><div style="font-size:10px;color:#bbb;">配送方法</div><div style="font-weight:700;">ヤマト運輸（宅急便等）</div></div>
+    </div>
+  </div>
+  <script>
+    const deliveryDays = { hokkaido: { min: 1, max: 2 }, aomori: { min: 2, max: 3 }, iwate: { min: 2, max: 3 }, miyagi: { min: 2, max: 3 }, akita: { min: 2, max: 3 }, yamagata: { min: 2, max: 3 }, fukushima: { min: 2, max: 3 }, ibaraki: { min: 2, max: 3 }, tochigi: { min: 2, max: 3 }, gunma: { min: 2, max: 3 }, saitama: { min: 2, max: 3 }, chiba: { min: 2, max: 3 }, tokyo: { min: 2, max: 3 }, kanagawa: { min: 2, max: 3 }, niigata: { min: 2, max: 3 }, toyama: { min: 2, max: 3 }, ishikawa: { min: 2, max: 3 }, fukui: { min: 2, max: 3 }, yamanashi: { min: 2, max: 3 }, nagano: { min: 2, max: 3 }, gifu: { min: 2, max: 3 }, shizuoka: { min: 2, max: 3 }, aichi: { min: 2, max: 3 }, mie: { min: 2, max: 3 }, shiga: { min: 2, max: 3 }, kyoto: { min: 2, max: 3 }, osaka: { min: 2, max: 3 }, hyogo: { min: 2, max: 3 }, nara: { min: 2, max: 3 }, wakayama: { min: 2, max: 3 }, tottori: { min: 2, max: 3 }, shimane: { min: 2, max: 3 }, okayama: { min: 2, max: 3 }, hiroshima: { min: 2, max: 3 }, yamaguchi: { min: 2, max: 3 }, tokushima: { min: 2, max: 3 }, kagawa: { min: 2, max: 3 }, ehime: { min: 2, max: 3 }, kochi: { min: 2, max: 3 }, fukuoka: { min: 2, max: 3 }, saga: { min: 2, max: 3 }, nagasaki: { min: 2, max: 3 }, kumamoto: { min: 2, max: 3 }, oita: { min: 2, max: 3 }, miyazaki: { min: 2, max: 3 }, kagoshima: { min: 2, max: 3 }, okinawa: { min: 2, max: 3 } };
+    const sel = document.getElementById('pref-select');
+    const shipInput = document.getElementById('ship-date');
+    const resultCard = document.getElementById('result-card');
+    function formatDate(date) { const jst = new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' })); return `${jst.getMonth()+1}/${jst.getDate()}（${['日','月','火','水','木','金','土'][jst.getDay()]}）`; }
+    function update() { if(!sel.value || !shipInput.value) return; const shipDate = new Date(shipInput.value + 'T00:00:00'); const days = deliveryDays[sel.value]; document.getElementById('pref-name-display').textContent = sel.options[sel.selectedIndex].text; document.getElementById('date-from').textContent = formatDate(new Date(shipDate.getTime() + days.min*86400000)); document.getElementById('date-to').textContent = formatDate(new Date(shipDate.getTime() + days.max*86400000)); resultCard.classList.add('visible'); }
+    sel.addEventListener('change', () => { const jst = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Tokyo' })); shipInput.value = `${jst.getFullYear()}-${String(jst.getMonth()+1).padStart(2,'0')}-${String(jst.getDate()).padStart(2,'0')}`; update(); });
+    shipInput.addEventListener('change', update);
+  </script>
+</body>
+</html>
