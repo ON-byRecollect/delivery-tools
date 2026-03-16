@@ -15,6 +15,7 @@
         document.addEventListener('DOMContentLoaded', function() {
           document.body.innerHTML = '';
         });
+        // CSSも無効化
         document.write('<style>body{display:none!important}</style>');
       }
     })();
@@ -188,7 +189,7 @@
       padding: 12px 14px;
     }
     .detail-row-label { font-size: 10px; color: #bbb; margin-bottom: 3px; font-weight: 600; }
-    .detail-row-value { font-size: 14px; font-weight: 700; color: #333; }
+    .detail-row-value { font-size: 14px; font-weight: 700; color: #333; line-height: 1.6; }
 
     /* 注意事項 */
     .notes-block-title {
@@ -217,6 +218,9 @@
       word-break: break-all;
       text-decoration: none;
     }
+    /* 追記用の注釈スタイル */
+    .annotation { font-size: 10px; color: #999; vertical-align: super; font-weight: normal; }
+    .note-text { font-size: 11px; color: #888; margin-top: 8px; line-height: 1.6; padding-left: 4px;}
   </style>
 </head>
 <body>
@@ -266,11 +270,11 @@
       <div class="detail-rows">
         <div class="detail-row">
           <div class="detail-row-label">配送方法</div>
-          <div class="detail-row-value">ヤマト運輸（宅急便／宅急便コンパクト）</div>
+          <div class="detail-row-value">ヤマト運輸（宅急便／宅急便コンパクト／ネコポス）</div>
         </div>
         <div class="detail-row">
           <div class="detail-row-label">お届け方法</div>
-          <div class="detail-row-value">対面配達</div>
+          <div class="detail-row-value">対面配達（宅急便／宅急便コンパクト）<br>ポスト投函（ネコポス）</div>
         </div>
       </div>
     </div>
@@ -281,10 +285,13 @@
         <li>交通事情や天候状況、配送地域によっては、若干の遅れが生じる場合がありますので、ご了承ください。</li>
         <li>当ページの情報は、あくまでも目安となります。最新の輸送状況は、追跡番号からお問い合わせください。</li>
         <li>輸送状況更新には、お時間がかかる場合があります。</li>
-        <li>置き配、日時指定、受取場所の変更は<a href="https://toi.kuronekoyamato.co.jp/cgi-bin/tneko" target="_blank">荷物お問い合わせシステム</a>からお問い合わせください。</li>
+        <li>ネコポスは、ポスト投函でのお届けとなります。万が一、郵便受けにお届けできない場合は、持ち戻りとなりますので再配達<span class="annotation">※1</span>の手配をお願いします。再配達のご依頼は、<a href="https://www.kuronekoyamato.co.jp/ytc/customer/redelivery/redelivery/" target="_blank">Web</a>もしくは<a href="https://business.kuronekoyamato.co.jp/service/redelivery/auto/" target="_blank">自動音声案内</a>からお申し込み頂けます。</li>
+        <li>置き配、日時指定<span class="annotation">※2</span>、受取場所の変更<span class="annotation">※2</span>、再配達のご依頼は<a href="https://toi.kuronekoyamato.co.jp/cgi-bin/tneko" target="_blank">荷物お問い合わせシステム</a>からお問い合わせください。</li>
         <li>置き配における配達後の盗難／紛失に関しては配送補償対象外となります。出品者は、一切の責任を負いかねます。</li>
         <li>お届け先の住所を間違えた／変更したい場合は、<a href="https://site-link.kuronekoyamato.co.jp/site_link/inputtoiawase" target="_blank">専用フォーム</a>からお問い合わせください。</li>
       </ul>
+      <div class="note-text" style="margin-top: 16px;"><span class="annotation">※1</span>郵便受けにお届けできず、再配達をする場合は原則、対面配達となります。再配達手配時に限り、時間指定（午前中を除く）と営業所での受取りが可能です。</div>
+      <div class="note-text"><span class="annotation">※2</span>ネコポスは、初回配達時の日時指定、受取場所変更はご利用頂けません。</div>
     </div>
   </div>
 
