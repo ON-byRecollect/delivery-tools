@@ -117,6 +117,7 @@
       cursor: pointer;
       outline: none;
       transition: border-color 0.2s;
+      text-align: center; /* 追記: 中央揃え */
     }
     select:focus { border-color: #e74c3c; }
 
@@ -162,6 +163,10 @@
       margin-bottom: 12px;
       background: #494949;
     }
+    .date-banner.c1 { background: #494949; }
+    .date-banner.c2 { background: #494949; }
+    .date-banner.c3 { background: #494949; }
+    .date-banner.c4 { background: #494949; }
 
     .date-banner-label {
       font-size: 10px;
@@ -205,6 +210,11 @@
     .detail-row-value { font-size: 14px; font-weight: 700; color: #333; }
 
     /* 注意事項 */
+    .notes-block {
+      background: transparent;
+      border-radius: 12px;
+      padding: 0;
+    }
     .notes-block-title {
       font-size: 13px;
       font-weight: 700;
@@ -241,6 +251,7 @@
   </header>
 
   <div class="container">
+
     <div class="card">
       <div class="form-rows">
         <div>
@@ -248,18 +259,75 @@
           <div class="select-wrapper">
             <select id="pref-select">
               <option value="">—— お届け先を選んでください ——</option>
-              <optgroup label="北海道"><option value="hokkaido">北海道</option></optgroup>
-              <optgroup label="東北"><option value="aomori">青森県</option><option value="iwate">岩手県</option><option value="miyagi">宮城県</option><option value="akita">秋田県</option><option value="yamagata">山形県</option><option value="fukushima">福島県</option></optgroup>
-              <optgroup label="関東"><option value="ibaraki">茨城県</option><option value="tochigi">栃木県</option><option value="gunma">群馬県</option><option value="saitama">埼玉県</option><option value="chiba">千葉県</option><option value="tokyo">東京都</option><option value="kanagawa">神奈川県</option></optgroup>
-              <optgroup label="中部"><option value="niigata">新潟県</option><option value="toyama">富山県</option><option value="ishikawa">石川県</option><option value="fukui">福井県</option><option value="yamanashi">山梨県</option><option value="nagano">長野県</option><option value="gifu">岐阜県</option><option value="shizuoka">静岡県</option><option value="aichi">愛知県</option></optgroup>
-              <optgroup label="近畿"><option value="mie">三重県</option><option value="shiga">滋賀県</option><option value="kyoto">京都府</option><option value="osaka">大阪府</option><option value="hyogo">兵庫県</option><option value="nara">奈良県</option><option value="wakayama">和歌山県</option></optgroup>
-              <optgroup label="中国"><option value="tottori">鳥取県</option><option value="shimane">島根県</option><option value="okayama">岡山県</option><option value="hiroshima">広島県</option><option value="yamaguchi">山口県</option></optgroup>
-              <optgroup label="四国"><option value="tokushima">徳島県</option><option value="kagawa">香川県</option><option value="ehime">愛媛県</option><option value="kochi">高知県</option></optgroup>
-              <optgroup label="九州"><option value="fukuoka">福岡県</option><option value="saga">佐賀県</option><option value="nagasaki">長崎県</option><option value="kumamoto">熊本県</option><option value="oita">大分県</option><option value="miyazaki">宮崎県</option><option value="kagoshima">鹿児島県</option></optgroup>
-              <optgroup label="沖縄"><option value="okinawa">沖縄県</option></optgroup>
+              <optgroup label="北海道">
+                <option value="hokkaido">北海道</option>
+              </optgroup>
+              <optgroup label="東北">
+                <option value="aomori">青森県</option>
+                <option value="iwate">岩手県</option>
+                <option value="miyagi">宮城県</option>
+                <option value="akita">秋田県</option>
+                <option value="yamagata">山形県</option>
+                <option value="fukushima">福島県</option>
+              </optgroup>
+              <optgroup label="関東">
+                <option value="ibaraki">茨城県</option>
+                <option value="tochigi">栃木県</option>
+                <option value="gunma">群馬県</option>
+                <option value="saitama">埼玉県</option>
+                <option value="chiba">千葉県</option>
+                <option value="tokyo">東京都</option>
+                <option value="kanagawa">神奈川県</option>
+              </optgroup>
+              <optgroup label="中部">
+                <option value="niigata">新潟県</option>
+                <option value="toyama">富山県</option>
+                <option value="ishikawa">石川県</option>
+                <option value="fukui">福井県</option>
+                <option value="yamanashi">山梨県</option>
+                <option value="nagano">長野県</option>
+                <option value="gifu">岐阜県</option>
+                <option value="shizuoka">静岡県</option>
+                <option value="aichi">愛知県</option>
+              </optgroup>
+              <optgroup label="近畿">
+                <option value="mie">三重県</option>
+                <option value="shiga">滋賀県</option>
+                <option value="kyoto">京都府</option>
+                <option value="osaka">大阪府</option>
+                <option value="hyogo">兵庫県</option>
+                <option value="nara">奈良県</option>
+                <option value="wakayama">和歌山県</option>
+              </optgroup>
+              <optgroup label="中国">
+                <option value="tottori">鳥取県</option>
+                <option value="shimane">島根県</option>
+                <option value="okayama">岡山県</option>
+                <option value="hiroshima">広島県</option>
+                <option value="yamaguchi">山口県</option>
+              </optgroup>
+              <optgroup label="四国">
+                <option value="tokushima">徳島県</option>
+                <option value="kagawa">香川県</option>
+                <option value="ehime">愛媛県</option>
+                <option value="kochi">高知県</option>
+              </optgroup>
+              <optgroup label="九州">
+                <option value="fukuoka">福岡県</option>
+                <option value="saga">佐賀県</option>
+                <option value="nagasaki">長崎県</option>
+                <option value="kumamoto">熊本県</option>
+                <option value="oita">大分県</option>
+                <option value="miyazaki">宮崎県</option>
+                <option value="kagoshima">鹿児島県</option>
+              </optgroup>
+              <optgroup label="沖縄">
+                <option value="okinawa">沖縄県</option>
+              </optgroup>
             </select>
           </div>
         </div>
+
         <div>
           <p class="form-row-label">発送日を入力</p>
           <input type="date" id="ship-date" required>
@@ -269,6 +337,7 @@
 
     <div class="card result-card" id="result-card">
       <div class="pref-name" id="res-name">—</div>
+
       <div class="date-banner" id="res-date-banner">
         <div class="date-banner-label">お届け日の目安</div>
         <div class="date-banner-row">
@@ -277,6 +346,7 @@
           <span class="date-val" id="res-date-max">—</span>
         </div>
       </div>
+
       <div class="detail-rows">
         <div class="detail-row">
           <div class="detail-row-label">配送方法</div>
@@ -290,57 +360,134 @@
     </div>
 
     <div class="card">
-      <div class="notes-block-title">注意事項</div>
-      <ul class="notes-list">
-        <li>交通事情や天候状況、配送地域によっては、若干の遅れが生じる場合がありますので、ご了承ください。</li>
-        <li>当ページの情報は、あくまでも目安となります。最新の輸送状況は、追跡番号からお問い合わせください。</li>
-        <li>輸送状況更新には、お時間がかかる場合があります。また、引受後の中間輸送情報が反映されず、次回更新が配達取扱局への到着（配達当日）となる場合があります。</li>
-        <li>配達日時の指定はできませんので、ご了承ください。</li>
-        <li>原則ポスト投函ですが、状況により対面配達になる場合があります。不在票が入っていた際は、<a href="https://www.post.japanpost.jp/receive/redelivery_form/index.php?lang=_ja" target="_blank">再配達の手配</a>をお願いします。</li>
-        <li>お届け先の住所を間違えた／変更したい場合は、<a href="https://www.post.japanpost.jp/cgi-yafuoku-contact/" target="_blank">専用フォーム</a>からお問い合わせください。</li>
-      </ul>
+      <div class="notes-block" style="background:transparent;padding:0;">
+        <div class="notes-block-title">注意事項</div>
+        <ul class="notes-list">
+          <li>交通事情や天候状況、配送地域によっては、若干の遅れが生じる場合がありますので、ご了承ください。</li>
+          <li>当ページの情報は、あくまでも目安となります。最新の輸送状況は、追跡番号からお問い合わせください。</li>
+          <li>輸送状況更新には、お時間がかかる場合があります。また、引受後の中間輸送情報が反映されず、次回更新が配達取扱局への到着（配達当日）となる場合があります。</li>
+          <li>配達日時の指定はできませんので、ご了承ください。</li>
+          <li>原則ポスト投函ですが、状況により対面配達になる場合があります。不在票が入っていた際は、<a href="https://www.post.japanpost.jp/receive/redelivery_form/index.php?lang=_ja" target="_blank">再配達の手配</a>をお願いします。</li>
+          <li>お届け先の住所を間違えた／変更したい場合は、<a href="https://www.post.japanpost.jp/cgi-yafuoku-contact/" target="_blank">専用フォーム</a>からお問い合わせください。</li>
+        </ul>
+      </div>
     </div>
-  </div>
 
+  </div>
   <script>
     const prefData = {
-      hokkaido: { name: '北海道', days: [1, 2] }, aomori: { name: '青森県', days: [3, 4] }, iwate: { name: '岩手県', days: [3, 4] }, miyagi: { name: '宮城県', days: [3, 4] }, akita: { name: '秋田県', days: [3, 4] }, yamagata: { name: '山形県', days: [3, 4] }, fukushima: { name: '福島県', days: [3, 4] }, ibaraki: { name: '茨城県', days: [3, 4] }, tochigi: { name: '栃木県', days: [3, 4] }, gunma: { name: '群馬県', days: [3, 4] }, saitama: { name: '埼玉県', days: [3, 4] }, chiba: { name: '千葉県', days: [3, 4] }, tokyo: { name: '東京都', days: [3, 4] }, kanagawa: { name: '神奈川県', days: [3, 4] }, niigata: { name: '新潟県', days: [3, 4] }, toyama: { name: '富山県', days: [3, 4] }, ishikawa: { name: '石川県', days: [3, 4] }, fukui: { name: '福井県', days: [3, 4] }, yamanashi: { name: '山梨県', days: [3, 4] }, nagano: { name: '長野県', days: [3, 4] }, gifu: { name: '岐阜県', days: [3, 4] }, shizuoka: { name: '静岡県', days: [3, 4] }, aichi: { name: '愛知県', days: [3, 4] }, mie: { name: '三重県', days: [3, 4] }, shiga: { name: '滋賀県', days: [3, 4] }, kyoto: { name: '京都府', days: [3, 4] }, osaka: { name: '大阪府', days: [3, 4] }, hyogo: { name: '兵庫県', days: [3, 4] }, nara: { name: '奈良県', days: [3, 4] }, wakayama: { name: '和歌山県', days: [3, 4] }, tottori: { name: '鳥取県', days: [4, 5] }, shimane: { name: '島根県', days: [4, 5] }, okayama: { name: '岡山県', days: [4, 5] }, hiroshima: { name: '広島県', days: [4, 5] }, yamaguchi: { name: '山口県', days: [4, 5] }, tokushima: { name: '徳島県', days: [4, 5] }, kagawa: { name: '香川県', days: [4, 5] }, ehime: { name: '愛媛県', days: [4, 5] }, kochi: { name: '高知県', days: [4, 5] }, fukuoka: { name: '福岡県', days: [4, 5] }, saga: { name: '佐賀県', days: [4, 5] }, nagasaki: { name: '長崎県', days: [4, 5] }, kumamoto: { name: '熊本県', days: [4, 5] }, oita: { name: '大分県', days: [4, 5] }, miyazaki: { name: '宮崎県', days: [4, 5] }, kagoshima: { name: '鹿児島県', days: [4, 5] }, okinawa: { name: '沖縄県', days: [6, 7] }
+      hokkaido: { name: '北海道', days: [1, 2] },
+      aomori: { name: '青森県', days: [3, 4] },
+      iwate: { name: '岩手県', days: [3, 4] },
+      miyagi: { name: '宮城県', days: [3, 4] },
+      akita: { name: '秋田県', days: [3, 4] },
+      yamagata: { name: '山形県', days: [3, 4] },
+      fukushima: { name: '福島県', days: [3, 4] },
+      ibaraki: { name: '茨城県', days: [3, 4] },
+      tochigi: { name: '栃木県', days: [3, 4] },
+      gunma: { name: '群馬県', days: [3, 4] },
+      saitama: { name: '埼玉県', days: [3, 4] },
+      chiba: { name: '千葉県', days: [3, 4] },
+      tokyo: { name: '東京都', days: [3, 4] },
+      kanagawa: { name: '神奈川県', days: [3, 4] },
+      niigata: { name: '新潟県', days: [3, 4] },
+      toyama: { name: '富山県', days: [3, 4] },
+      ishikawa: { name: '石川県', days: [3, 4] },
+      fukui: { name: '福井県', days: [3, 4] },
+      yamanashi: { name: '山梨県', days: [3, 4] },
+      nagano: { name: '長野県', days: [3, 4] },
+      gifu: { name: '岐阜県', days: [3, 4] },
+      shizuoka: { name: '静岡県', days: [3, 4] },
+      aichi: { name: '愛知県', days: [3, 4] },
+      mie: { name: '三重県', days: [3, 4] },
+      shiga: { name: '滋賀県', days: [3, 4] },
+      kyoto: { name: '京都府', days: [3, 4] },
+      osaka: { name: '大阪府', days: [3, 4] },
+      hyogo: { name: '兵庫県', days: [3, 4] },
+      nara: { name: '奈良県', days: [3, 4] },
+      wakayama: { name: '和歌山県', days: [3, 4] },
+      tottori: { name: '鳥取県', days: [4, 5] },
+      shimane: { name: '島根県', days: [4, 5] },
+      okayama: { name: '岡山県', days: [4, 5] },
+      hiroshima: { name: '広島県', days: [4, 5] },
+      yamaguchi: { name: '山口県', days: [4, 5] },
+      tokushima: { name: '徳島県', days: [4, 5] },
+      kagawa: { name: '香川県', days: [4, 5] },
+      ehime: { name: '愛媛県', days: [4, 5] },
+      kochi: { name: '高知県', days: [4, 5] },
+      fukuoka: { name: '福岡県', days: [4, 5] },
+      saga: { name: '佐賀県', days: [4, 5] },
+      nagasaki: { name: '長崎県', days: [4, 5] },
+      kumamoto: { name: '熊本県', days: [4, 5] },
+      oita: { name: '大分県', days: [4, 5] },
+      miyazaki: { name: '宮崎県', days: [4, 5] },
+      kagoshima: { name: '鹿児島県', days: [4, 5] },
+      okinawa: { name: '沖縄県', days: [6, 7] }
     };
 
     const sel = document.getElementById('pref-select');
     const shipInput = document.getElementById('ship-date');
     const resultCard = document.getElementById('result-card');
     const resName = document.getElementById('res-name');
+    const resDateBanner = document.getElementById('res-date-banner');
     const resDateMin = document.getElementById('res-date-min');
     const resDateMax = document.getElementById('res-date-max');
 
     function formatDate(date) {
+      // JST基準で日付をフォーマット
       const jstDate = new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
       const month = jstDate.getMonth() + 1;
       const day = jstDate.getDate();
       const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
-      return `${month}/${day}（${dayNames[jstDate.getDay()]}）`;
+      const dayName = dayNames[jstDate.getDay()];
+      return `${month}/${day}（${dayName}）`;
     }
 
     function update() {
-      if (!sel.value || !shipInput.value) { resultCard.classList.remove('visible'); return; }
-      const pref = prefData[sel.value];
-      const shipDate = new Date(shipInput.value + 'T00:00:00');
+      const selectedPref = sel.value;
+      const shipDateStr = shipInput.value;
+
+      if (!selectedPref || !shipDateStr) {
+        resultCard.classList.remove('visible');
+        return;
+      }
+
+      const pref = prefData[selectedPref];
+      // 入力された日付をJST基準で解釈
+      const shipDate = new Date(shipDateStr + 'T00:00:00');
+
       resName.textContent = pref.name;
-      const minDate = new Date(shipDate); minDate.setDate(minDate.getDate() + pref.days[0]);
-      const maxDate = new Date(shipDate); maxDate.setDate(maxDate.getDate() + pref.days[1]);
+
+      const minDate = new Date(shipDate);
+      minDate.setDate(minDate.getDate() + pref.days[0]);
+      const maxDate = new Date(shipDate);
+      maxDate.setDate(maxDate.getDate() + pref.days[1]);
+
       resDateMin.textContent = formatDate(minDate);
       resDateMax.textContent = formatDate(maxDate);
+
       resultCard.classList.add('visible');
     }
 
-    sel.addEventListener('change', () => {
+    // お届け先選択時に本日の日付を自動入力（JST基準）
+    function setTodayOnPrefChange() {
       const today = new Date();
+      // JST（日本標準時）での日付を取得
       const jstDate = new Date(today.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
-      shipInput.value = `${jstDate.getFullYear()}-${String(jstDate.getMonth() + 1).padStart(2, '0')}-${String(jstDate.getDate()).padStart(2, '0')}`;
-      update();
-    });
+      const year = jstDate.getFullYear();
+      const month = String(jstDate.getMonth() + 1).padStart(2, '0');
+      const day = String(jstDate.getDate()).padStart(2, '0');
+      const todayString = `${year}-${month}-${day}`;
+      shipInput.value = todayString;
+      update(); // 日付設定後に結果を更新
+    }
+
+    // 都道府県選択時に発送日を自動設定
+    sel.addEventListener('change', setTodayOnPrefChange);
     shipInput.addEventListener('change', update);
+
+    // 発送日入力欄は初期状態で空白（ページロード時に自動入力しない）
   </script>
+
 </body>
 </html>
