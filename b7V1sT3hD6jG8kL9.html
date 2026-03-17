@@ -124,8 +124,11 @@
       outline: none;
       transition: border-color 0.2s;
       -webkit-appearance: none;
+      text-align: left;
+      min-height: 52px;
     }
     input[type="date"]:focus { border-color: #f7c234; }
+    input[type="date"]:invalid { color: #aaa; }
 
     /* 結果カード */
     .result-card {
@@ -252,7 +255,7 @@
         </div>
         <div>
           <p class="form-row-label">発送日</p>
-          <input type="date" id="ship-date">
+          <input type="date" id="ship-date" required>
         </div>
       </div>
     </div>
