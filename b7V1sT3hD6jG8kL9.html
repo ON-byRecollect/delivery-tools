@@ -99,7 +99,7 @@
       background: #f7f8fa;
       border: 2px solid #e8e8e8;
       border-radius: 14px;
-      padding: 14px 44px; /* 左右の余白を等しくし視覚的な中央揃えを調整 */
+      padding: 14px 44px;
       font-size: 16px;
       font-family: inherit;
       font-weight: 600;
@@ -108,7 +108,7 @@
       outline: none;
       transition: border-color 0.2s;
       text-align: center;
-      text-align-last: center; /* Safari等のブラウザで中央揃えを強制するためのプロパティ */
+      text-align-last: center;
     }
     select:focus { border-color: #f7c234; }
 
@@ -154,10 +154,6 @@
       margin-bottom: 12px;
       background: #494949;
     }
-    .date-banner.c1 { background: #494949; }
-    .date-banner.c2 { background: #494949; }
-    .date-banner.c3 { background: #494949; }
-    .date-banner.c4 { background: #494949; }
 
     .date-banner-label {
       font-size: 10px;
@@ -201,11 +197,6 @@
     .detail-row-value { font-size: 14px; font-weight: 700; color: #333; line-height: 1.6; }
 
     /* 注意事項 */
-    .notes-block {
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-    }
     .notes-block-title {
       font-size: 13px;
       font-weight: 700;
@@ -231,6 +222,7 @@
       color: #3498db;
       word-break: break-all;
       text-decoration: none;
+      font-weight: bold;
     }
     /* 追記用の注釈スタイル */
     .annotation { font-size: 10px; color: #999; vertical-align: super; font-weight: normal; }
@@ -245,7 +237,6 @@
   </header>
 
   <div class="container">
-
     <div class="card">
       <div class="form-rows">
         <div>
@@ -253,71 +244,15 @@
           <div class="select-wrapper">
             <select id="pref-select">
               <option value="">お届け先を選んでください</option>
-              <optgroup label="北海道">
-                <option value="hokkaido">北海道</option>
-              </optgroup>
-              <optgroup label="東北">
-                <option value="aomori">青森県</option>
-                <option value="iwate">岩手県</option>
-                <option value="miyagi">宮城県</option>
-                <option value="akita">秋田県</option>
-                <option value="yamagata">山形県</option>
-                <option value="fukushima">福島県</option>
-              </optgroup>
-              <optgroup label="関東">
-                <option value="ibaraki">茨城県</option>
-                <option value="tochigi">栃木県</option>
-                <option value="gunma">群馬県</option>
-                <option value="saitama">埼玉県</option>
-                <option value="chiba">千葉県</option>
-                <option value="tokyo">東京都</option>
-                <option value="kanagawa">神奈川県</option>
-              </optgroup>
-              <optgroup label="中部">
-                <option value="niigata">新潟県</option>
-                <option value="toyama">富山県</option>
-                <option value="ishikawa">石川県</option>
-                <option value="fukui">福井県</option>
-                <option value="yamanashi">山梨県</option>
-                <option value="nagano">長野県</option>
-                <option value="gifu">岐阜県</option>
-                <option value="shizuoka">静岡県</option>
-                <option value="aichi">愛知県</option>
-              </optgroup>
-              <optgroup label="近畿">
-                <option value="mie">三重県</option>
-                <option value="shiga">滋賀県</option>
-                <option value="kyoto">京都府</option>
-                <option value="osaka">大阪府</option>
-                <option value="hyogo">兵庫県</option>
-                <option value="nara">奈良県</option>
-                <option value="wakayama">和歌山県</option>
-              </optgroup>
-              <optgroup label="中国">
-                <option value="tottori">鳥取県</option>
-                <option value="shimane">島根県</option>
-                <option value="okayama">岡山県</option>
-                <option value="hiroshima">広島県</option>
-                <option value="yamaguchi">山口県</option>
-              </optgroup>
-              <optgroup label="四国">
-                <option value="tokushima">徳島県</option>
-                <option value="kagawa">香川県</option>
-                <option value="ehime">愛媛県</option>
-                <option value="kochi">高知県</option>
-              </optgroup>
-              <optgroup label="九州">
-                <option value="fukuoka">福岡県</option>
-                <option value="saga">佐賀県</option>
-                <option value="nagasaki">長崎県</option>
-                <option value="kumamoto">熊本県</option>
-                <option value="oita">大分県</option>
-                <option value="miyazaki">宮崎県</option>
-                <option value="kagoshima">鹿児島県</option>
-              </optgroup>
-              <optgroup label="沖縄">
-                <option value="okinawa">沖縄県</option>
-              </optgroup>
+              <optgroup label="北海道"><option value="hokkaido">北海道</option></optgroup>
+              <optgroup label="東北"><option value="aomori">青森県</option><option value="iwate">岩手県</option><option value="miyagi">宮城県</option><option value="akita">秋田県</option><option value="yamagata">山形県</option><option value="fukushima">福島県</option></optgroup>
+              <optgroup label="関東"><option value="ibaraki">茨城県</option><option value="tochigi">栃木県</option><option value="gunma">群馬県</option><option value="saitama">埼玉県</option><option value="chiba">千葉県</option><option value="tokyo">東京都</option><option value="kanagawa">神奈川県</option></optgroup>
+              <optgroup label="中部"><option value="niigata">新潟県</option><option value="toyama">富山県</option><option value="ishikawa">石川県</option><option value="fukui">福井県</option><option value="yamanashi">山梨県</option><option value="nagano">長野県</option><option value="gifu">岐阜県</option><option value="shizuoka">静岡県</option><option value="aichi">愛知県</option></optgroup>
+              <optgroup label="近畿"><option value="mie">三重県</option><option value="shiga">滋賀県</option><option value="kyoto">京都府</option><option value="osaka">大阪府</option><option value="hyogo">兵庫県</option><option value="nara">奈良県</option><option value="wakayama">和歌山県</option></optgroup>
+              <optgroup label="中国"><option value="tottori">鳥取県</option><option value="shimane">島根県</option><option value="okayama">岡山県</option><option value="hiroshima">広島県</option><option value="yamaguchi">山口県</option></optgroup>
+              <optgroup label="四国"><option value="tokushima">徳島県</option><option value="kagawa">香川県</option><option value="ehime">愛媛県</option><option value="kochi">高知県</option></optgroup>
+              <optgroup label="九州"><option value="fukuoka">福岡県</option><option value="saga">佐賀県</option><option value="nagasaki">長崎県</option><option value="kumamoto">熊本県</option><option value="oita">大分県</option><option value="miyazaki">宮崎県</option><option value="kagoshima">鹿児島県</option></optgroup>
+              <optgroup label="沖縄"><option value="okinawa">沖縄県</option></optgroup>
             </select>
           </div>
         </div>
@@ -330,46 +265,28 @@
 
     <div id="result-card" class="card result-card">
       <p class="pref-name" id="pref-name-display"></p>
-      
-      <div class="date-banner" id="date-banner">
-        <div class="date-banner-label">お届け日の目安</div>
-        <div class="date-banner-row">
-          <span class="date-val" id="date-from"></span>
-          <span class="date-sep">～</span>
-          <span class="date-val" id="date-to"></span>
-        </div>
-      </div>
-
+      <div class="date-banner"><div class="date-banner-label">お届け日の目安</div><div class="date-banner-row"><span class="date-val" id="date-from"></span><span class="date-sep">～</span><span class="date-val" id="date-to"></span></div></div>
       <div class="detail-rows">
-        <div class="detail-row">
-          <div class="detail-row-label">配送方法</div>
-          <div class="detail-row-value">宅急便／宅急便コンパクト／ネコポス</div>
-        </div>
-        <div class="detail-row">
-          <div class="detail-row-label">お届け方法</div>
-          <div class="detail-row-value">対面配達（宅急便／宅急便コンパクト）<br>ポスト投函（ネコポス）</div>
-        </div>
+        <div class="detail-row"><div class="detail-row-label">配送方法</div><div class="detail-row-value">宅急便／宅急便コンパクト／ネコポス</div></div>
+        <div class="detail-row"><div class="detail-row-label">お届け方法</div><div class="detail-row-value">対面配達（宅急便／宅急便コンパクト）<br>ポスト投函（ネコポス）</div></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="notes-block">
-        <div class="notes-block-title">注意事項</div>
-        <ul class="notes-list">
-          <li>繁忙期における荷物量の増加、交通事情や天候状況、配送地域によっては遅れが生じる場合があります。<a href="https://www.kuronekoyamato.co.jp/ytc/chien/chien_hp.html" target="_blank">こちら</a>から、最新の遅延情報をご確認頂けます。</li>
-          <li>当サイト上の「お届け日の目安」は、あくまでも参考情報となります。最新の輸送状況は、ヤマト運輸公式の<a href="https://toi.kuronekoyamato.co.jp/cgi-bin/tneko" target="_blank">荷物問い合わせシステム</a>をご確認ください。</li>
-          <li>ヤマト運輸公式の荷物問い合わせシステムに「陸・海上切替え」と記載がある場合、同サイトに記載されている「お届け予定日時」より3日〜4日程度、お時間がかかる場合があります。</li>
-          <li>お荷物の発送から数時間は、輸送状況の確認、置き配、日時指定、受取場所の変更ができない場合があります。その場合は、時間を空けて再度お試しください。</li>
-          <li>ネコポスは、ポスト投函でのお届けとなります。万が一、郵便受けにお届けできない場合は、持ち戻りとなりますので再配達<span class="annotation">※1</span>の手配をお願いします。再配達のご依頼は、<a href="https://www.kuronekoyamato.co.jp/ytc/customer/redelivery/redelivery/" target="_blank">Web</a>もしくは<a href="https://business.kuronekoyamato.co.jp/service/redelivery/auto/" target="_blank">自動音声案内</a>からお申し込み頂けます。</li>
-          <li>置き配、日時指定<span class="annotation">※2</span>、受取場所の変更<span class="annotation">※2</span>は<a href="https://toi.kuronekoyamato.co.jp/cgi-bin/tneko" target="_blank">荷物お問い合わせシステム</a>からお問い合わせください。</li>
-          <li>置き配における配達後の盗難／紛失に関しては配送補償対象外となります。出品者は、一切の責任を負いかねます。</li>
-          <li>お届け先の住所を間違えた／変更したい場合は、<a href="https://site-link.kuronekoyamato.co.jp/site_link/inputtoiawase" target="_blank">専用フォーム</a>からお問い合わせください。</li>
-        </ul>
-        <div class="note-text" style="margin-top: 16px;"><span class="annotation">※1</span>郵便受けにお届けできず、再配達をする場合は原則、対面配達となります。再配達手配時に限り、時間指定（午前中を除く）とヤマト運輸営業所での受取りが可能です。</div>
-        <div class="note-text"><span class="annotation">※2</span>ネコポス（初回配達時）は日時指定、受取場所の変更はご利用頂けません。</div>
-      </div>
+      <div class="notes-block-title">注意事項</div>
+      <ul class="notes-list">
+        <li>繁忙期における荷物量の増加、交通事情や天候状況、配送地域によっては遅れが生じる場合があります。<a href="https://www.kuronekoyamato.co.jp/ytc/chien/chien_hp.html" target="_blank">こちら</a>から、最新の情報をご確認頂けます。</li>
+        <li>当サイト上の「お届け日の目安」は、あくまでも参考情報となります。最新の輸送状況は、ヤマト運輸公式の<a href="https://toi.kuronekoyamato.co.jp/cgi-bin/tneko" target="_blank">荷物問い合わせシステム</a>をご確認ください。</li>
+        <li>ヤマト運輸公式の<a href="https://toi.kuronekoyamato.co.jp/cgi-bin/tneko" target="_blank">荷物問い合わせシステム</a>に「陸・海上切替え」と記載がある場合、同サイトに記載されている「お届け予定日時」より3日〜4日程度、お時間がかかる場合があります。</li>
+        <li>お荷物の発送から数時間は、輸送状況の確認、置き配、日時指定、受取場所の変更ができない場合があります。その場合は、時間を空けて再度お試しください。</li>
+        <li>ネコポスは、ポスト投函でのお届けとなります。万が一、郵便受けにお届けできない場合は、持ち戻りとなりますので再配達<span class="annotation">※1</span>の手配をお願いします。再配達のご依頼は、<a href="https://www.kuronekoyamato.co.jp/ytc/customer/redelivery/redelivery/" target="_blank">Web</a>もしくは<a href="https://business.kuronekoyamato.co.jp/service/redelivery/auto/" target="_blank">自動音声案内</a>からお申し込み頂けます。</li>
+        <li>置き配、日時指定<span class="annotation">※2</span>、受取場所の変更<span class="annotation">※2</span>は<a href="https://toi.kuronekoyamato.co.jp/cgi-bin/tneko" target="_blank">荷物問い合わせシステム</a>からお問い合わせください。</li>
+        <li>置き配における配達後の盗難／紛失に関しては配送補償対象外となります。出品者は、一切の責任を負いかねます。</li>
+        <li>お届け先の住所を間違えた／変更したい場合は、<a href="https://site-link.kuronekoyamato.co.jp/site_link/inputtoiawase" target="_blank">専用フォーム</a>からお問い合わせください。</li>
+      </ul>
+      <div class="note-text" style="margin-top: 16px;"><span class="annotation">※1</span>郵便受けにお届けできず、再配達をする場合は原則、対面配達となります。再配達手配時に限り、時間指定（午前中を除く）とヤマト運輸営業所での受取りが可能です。</div>
+      <div class="note-text"><span class="annotation">※2</span>ネコポス（初回配達時）は日時指定、受取場所の変更はご利用頂けません。</div>
     </div>
-
   </div>
 
   <script>
@@ -379,87 +296,12 @@
     const prefNameDisplay = document.getElementById('pref-name-display');
     const dateFromDisplay = document.getElementById('date-from');
     const dateToDisplay = document.getElementById('date-to');
-    const dateBanner = document.getElementById('date-banner');
-
-    const prefNames = {
-      hokkaido: '北海道', aomori: '青森県', iwate: '岩手県', miyagi: '宮城県', akita: '秋田県', yamagata: '山形県', fukushima: '福島県',
-      ibaraki: '茨城県', tochigi: '栃木県', gunma: '群馬県', saitama: '埼玉県', chiba: '千葉県', tokyo: '東京都', kanagawa: '神奈川県',
-      niigata: '新潟県', toyama: '富山県', ishikawa: '石川県', fukui: '福井県', yamanashi: '山梨県', nagano: '長野県', gifu: '岐阜県', shizuoka: '静岡県', aichi: '愛知県',
-      mie: '三重県', shiga: '滋賀県', kyoto: '京都府', osaka: '大阪府', hyogo: '兵庫県', nara: '奈良県', wakayama: '和歌山県',
-      tottori: '鳥取県', shimane: '島根県', okayama: '岡山県', hiroshima: '広島県', yamaguchi: '山口県',
-      tokushima: '徳島県', kagawa: '香川県', ehime: '愛媛県', kochi: '高知県',
-      fukuoka: '福岡県', saga: '佐賀県', nagasaki: '長崎県', kumamoto: '熊本県', oita: '大分県', miyazaki: '宮崎県', kagoshima: '鹿児島県',
-      okinawa: '沖縄県'
-    };
-
-    // 配送日数データ
-    const deliveryDays = {
-      hokkaido: { min: 1, max: 2 },
-      aomori: { min: 2, max: 3 }, iwate: { min: 2, max: 3 }, miyagi: { min: 2, max: 3 }, akita: { min: 2, max: 3 }, yamagata: { min: 2, max: 3 }, fukushima: { min: 2, max: 3 },
-      ibaraki: { min: 2, max: 3 }, tochigi: { min: 2, max: 3 }, gunma: { min: 2, max: 3 }, saitama: { min: 2, max: 3 }, chiba: { min: 2, max: 3 }, tokyo: { min: 2, max: 3 }, kanagawa: { min: 2, max: 3 },
-      niigata: { min: 2, max: 3 }, toyama: { min: 2, max: 3 }, ishikawa: { min: 2, max: 3 }, fukui: { min: 2, max: 3 }, yamanashi: { min: 2, max: 3 }, nagano: { min: 2, max: 3 },
-      gifu: { min: 2, max: 3 }, shizuoka: { min: 2, max: 3 }, aichi: { min: 2, max: 3 },
-      mie: { min: 2, max: 3 }, shiga: { min: 2, max: 3 }, kyoto: { min: 2, max: 3 }, osaka: { min: 2, max: 3 }, hyogo: { min: 2, max: 3 }, nara: { min: 2, max: 3 }, wakayama: { min: 2, max: 3 },
-      tottori: { min: 2, max: 3 }, shimane: { min: 2, max: 3 }, okayama: { min: 2, max: 3 }, hiroshima: { min: 2, max: 3 }, yamaguchi: { min: 2, max: 3 },
-      tokushima: { min: 2, max: 3 }, kagawa: { min: 2, max: 3 }, ehime: { min: 2, max: 3 }, kochi: { min: 2, max: 3 },
-      fukuoka: { min: 2, max: 3 }, saga: { min: 2, max: 3 }, nagasaki: { min: 2, max: 3 }, kumamoto: { min: 2, max: 3 }, oita: { min: 2, max: 3 }, miyazaki: { min: 2, max: 3 }, kagoshima: { min: 2, max: 3 },
-      okinawa: { min: 2, max: 3 }
-    };
-
-    function formatDate(date) {
-      // JST基準で日付をフォーマット
-      const jstDate = new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
-      const month = String(jstDate.getMonth() + 1);
-      const day = String(jstDate.getDate());
-      const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][jstDate.getDay()];
-      return `${month}/${day}（${dayOfWeek}）`;
-    }
-
-    function updateDisplay() {
-      const pref = prefSelect.value;
-      const shipDate = shipDateInput.value;
-
-      if (!pref || !shipDate) {
-        resultCard.classList.remove('visible');
-        return;
-      }
-
-      // 入力された日付をJST基準で解釈
-      const shipDateObj = new Date(shipDate + 'T00:00:00');
-      const days = deliveryDays[pref];
-
-      const dateFromObj = new Date(shipDateObj);
-      dateFromObj.setDate(dateFromObj.getDate() + days.min);
-
-      const dateToObj = new Date(shipDateObj);
-      dateToObj.setDate(dateToObj.getDate() + days.max);
-
-      prefNameDisplay.textContent = prefNames[pref];
-      dateFromDisplay.textContent = formatDate(dateFromObj);
-      dateToDisplay.textContent = formatDate(dateToObj);
-
-      // バナーのカラークラスを設定（ここではすべて同じ色）
-      dateBanner.className = 'date-banner c1';
-
-      resultCard.classList.add('visible');
-    }
-
-    // お届け先選択時に本日の日付を自動入力（JST基準）
-    prefSelect.addEventListener('change', function() {
-      const today = new Date();
-      // JST（日本標準時）での日付を取得
-      const jstDate = new Date(today.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
-      const year = jstDate.getFullYear();
-      const month = String(jstDate.getMonth() + 1).padStart(2, '0');
-      const day = String(jstDate.getDate()).padStart(2, '0');
-      const todayString = `${year}-${month}-${day}`;
-      shipDateInput.value = todayString;
-      updateDisplay();
-    });
-    
-    shipDateInput.addEventListener('change', updateDisplay);
-
-    // 発送日入力欄は初期状態で空白（ページロード時に自動入力しない）
+    const prefNames = { hokkaido: '北海道', aomori: '青森県', iwate: '岩手県', miyagi: '宮城県', akita: '秋田県', yamagata: '山形県', fukushima: '福島県', ibaraki: '茨城県', tochigi: '栃木県', gunma: '群馬県', saitama: '埼玉県', chiba: '千葉県', tokyo: '東京都', kanagawa: '神奈川県', niigata: '新潟県', toyama: '富山県', ishikawa: '石川県', fukui: '福井県', yamanashi: '山梨県', nagano: '長野県', gifu: '岐阜県', shizuoka: '静岡県', aichi: '愛知県', mie: '三重県', shiga: '滋賀県', kyoto: '京都府', osaka: '大阪府', hyogo: '兵庫県', nara: '奈良県', wakayama: '和歌山県', tottori: '鳥取県', shimane: '島根県', okayama: '岡山県', hiroshima: '広島県', yamaguchi: '山口県', tokushima: '徳島県', kagawa: '香川県', ehime: '愛媛県', kochi: '高知県', fukuoka: '福岡県', saga: '佐賀県', nagasaki: '長崎県', kumamoto: '熊本県', oita: '大分県', miyazaki: '宮崎県', kagoshima: '鹿児島県', okinawa: '沖縄県' };
+    const deliveryDays = { hokkaido: { min: 1, max: 2 }, aomori: { min: 2, max: 3 }, iwate: { min: 2, max: 3 }, miyagi: { min: 2, max: 3 }, akita: { min: 2, max: 3 }, yamagata: { min: 2, max: 3 }, fukushima: { min: 2, max: 3 }, ibaraki: { min: 2, max: 3 }, tochigi: { min: 2, max: 3 }, gunma: { min: 2, max: 3 }, saitama: { min: 2, max: 3 }, chiba: { min: 2, max: 3 }, tokyo: { min: 2, max: 3 }, kanagawa: { min: 2, max: 3 }, niigata: { min: 2, max: 3 }, toyama: { min: 2, max: 3 }, ishikawa: { min: 2, max: 3 }, fukui: { min: 2, max: 3 }, yamanashi: { min: 2, max: 3 }, nagano: { min: 2, max: 3 }, gifu: { min: 2, max: 3 }, shizuoka: { min: 2, max: 3 }, aichi: { min: 2, max: 3 }, mie: { min: 2, max: 3 }, shiga: { min: 2, max: 3 }, kyoto: { min: 2, max: 3 }, osaka: { min: 2, max: 3 }, hyogo: { min: 2, max: 3 }, nara: { min: 2, max: 3 }, wakayama: { min: 2, max: 3 }, tottori: { min: 2, max: 3 }, shimane: { min: 2, max: 3 }, okayama: { min: 2, max: 3 }, hiroshima: { min: 2, max: 3 }, yamaguchi: { min: 2, max: 3 }, tokushima: { min: 2, max: 3 }, kagawa: { min: 2, max: 3 }, ehime: { min: 2, max: 3 }, kochi: { min: 2, max: 3 }, fukuoka: { min: 2, max: 3 }, saga: { min: 2, max: 3 }, nagasaki: { min: 2, max: 3 }, kumamoto: { min: 2, max: 3 }, oita: { min: 2, max: 3 }, miyazaki: { min: 2, max: 3 }, kagoshima: { min: 2, max: 3 }, okinawa: { min: 2, max: 3 } };
+    function formatDate(date) { const jst = new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' })); return `${jst.getMonth() + 1}/${jst.getDate()}（${['日', '月', '火', '水', '木', '金', '土'][jst.getDay()]}）`; }
+    function update() { const pref = prefSelect.value; const shipDate = shipDateInput.value; if (!pref || !shipDate) { resultCard.classList.remove('visible'); return; } const shipDateObj = new Date(shipDate + 'T00:00:00'); const days = deliveryDays[pref]; const dateFromObj = new Date(shipDateObj); dateFromObj.setDate(dateFromObj.getDate() + days.min); const dateToObj = new Date(shipDateObj); dateToObj.setDate(dateToObj.getDate() + days.max); prefNameDisplay.textContent = prefNames[pref]; dateFromDisplay.textContent = formatDate(dateFromObj); dateToDisplay.textContent = formatDate(dateToObj); resultCard.classList.add('visible'); }
+    prefSelect.addEventListener('change', function() { const today = new Date(); const jstDate = new Date(today.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' })); shipDateInput.value = `${jstDate.getFullYear()}-${String(jstDate.getMonth() + 1).padStart(2, '0')}-${String(jstDate.getDate()).padStart(2, '0')}`; update(); });
+    shipDateInput.addEventListener('change', update);
   </script>
 </body>
 </html>
